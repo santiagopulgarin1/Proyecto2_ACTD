@@ -1,0 +1,11 @@
+import pandas as pd
+import yfinance as yf
+from yahoofinancials import YahooFinancials
+import xlsxwriter
+
+aapl = yf.download('AAPL', start='2019-01-01',   end='2022-01-01', progress=False)
+precio = list(aapl.columns)[4]
+aapl = pd.DataFrame(aapl[precio])
+writer = pd.ExcelWriter('datos.xlsx', engine='xlsxwriter')
+aapl.to_excel(writer, sheet_name='APPLE', index=True)
+writer.save()
