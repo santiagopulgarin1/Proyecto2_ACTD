@@ -1,0 +1,26 @@
+import pandas as pd
+import yfinance as yf
+import matplotlib.pyplot as plt
+import numpy as np
+import xlsxwriter
+import numpy as np
+import statsmodels.api as sm
+import statsmodels.tsa as tsm
+from matplotlib.gridspec import GridSpec
+from statsmodels.formula.api import ols
+from scipy import stats
+from astsadata import *
+
+
+datosaapl = pd.read_excel("https://datos-aapl.s3.amazonaws.com/datosAAPL.xlsx")
+datosspy= pd.read_excel("https://datos-aapl.s3.amazonaws.com/datosSPY.xlsx")
+
+##ESTADÍSTICAS DESCRIPTIVAS
+datosaapl.describe()
+datosaapl.boxplot()
+
+plt.scatter(x="Date", y="Adj Close", data=datosaapl, c="b", label="AAPL")
+plt.scatter(x="Date", y="Adj Close", data=datosspy, c="r", label="SPY")
+plt.legend(loc='upper left')
+plt.xlabel("Date")
+plt.ylabel("Adj Close")
