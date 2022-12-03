@@ -84,13 +84,6 @@ datosaapl.info()
 datosaapl.head() # El DataFrame ya tiene un DatetimeIndex
 
 
-# In[162]:
-
-
-datosaapl_custom_business_day = datosaapl.asfreq('C') #https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases
-datosaapl_custom_business_day[datosaapl_custom_business_day['Adj Close'].isnull()]
-
-
 # # 3. Visualización
 
 # In[36]:
